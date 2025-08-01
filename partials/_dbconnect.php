@@ -1,13 +1,13 @@
 <?php
-$server = "localhost";
-$username = "root";
-$password = "";
-$database = "users";
+$servername = getenv("DB_HOST");
+$username = getenv("DB_USER");
+$password = getenv("DB_PASS");
+$dbname = getenv("DB_NAME");
 
-$conn = mysqli_connect($server, $username, $password, $database);
-if (!$conn){
 
-    die("Error". mysqli_connect_error());
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-
 ?>
