@@ -1,88 +1,83 @@
-Here’s a more polished, reader-friendly setup guide and schema definition for **Student-Portal1**:
+## Student-portal1
+
+**Technologies Used:** HTML, CSS, JavaScript, PHP
+**Requirements:** XAMPP (for Apache and MySQL)
 
 ---
 
-## Student-Portal1
+### Steps to Set Up the Project
 
-**Tech stack:** HTML • CSS • JavaScript • PHP
-**Server:** XAMPP (Apache + MySQL)
-
-### Prerequisites
-
-1. **XAMPP** installed and running (Apache & MySQL modules enabled).
-2. Access to **phpMyAdmin** (typically at `http://localhost/phpmyadmin`).
+1. Install and launch **XAMPP**.
+2. Start both **Apache** and **MySQL** modules from the XAMPP Control Panel.
+3. Open your browser and go to `http://localhost/phpmyadmin`.
 
 ---
 
-### 1. Create the Database
+### Database Setup
 
-1. Open phpMyAdmin.
-2. Click **New**, enter **users** as the database name, and click **Create**.
+1. In phpMyAdmin, **create a new database** named:
+   **`users`**
 
----
-
-### 2. Define the Tables
-
-Within the `users` database, create the following four tables:
-
-| Table Name   | Columns                                                                                                                                                                                                                            |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **users**    | • `sno` (INT, PRIMARY KEY, AUTO\_INCREMENT) <br>• `name` (VARCHAR) <br>• `mobile` (VARCHAR) <br>• `address` (TEXT) <br>• `username` (VARCHAR, UNIQUE) <br>• `password` (VARCHAR) <br>• `dt` (DATETIME, default CURRENT\_TIMESTAMP) |
-| **doubt**    | • `sno` (INT, PRIMARY KEY, AUTO\_INCREMENT) <br>• `name` (VARCHAR) <br>• `username` (VARCHAR) <br>• `doubts` (TEXT) <br>• `dt` (DATETIME, default CURRENT\_TIMESTAMP)                                                              |
-| **feedback** | • `sno` (INT, PRIMARY KEY, AUTO\_INCREMENT) <br>• `name` (VARCHAR) <br>• `username` (VARCHAR) <br>• `feedback` (TEXT) <br>• `dt` (DATETIME, default CURRENT\_TIMESTAMP)                                                            |
-| **fees**     | • `sno` (INT, PRIMARY KEY, AUTO\_INCREMENT) <br>• `student_name` (VARCHAR) <br>• `semester` (VARCHAR) <br>• `prn` (VARCHAR) <br>• `amount` (DECIMAL) <br>• `datePaid` (DATE)                                                       |
+2. Inside the `users` database, **create 4 tables** with the following names and columns (case preserved):
 
 ---
 
-### 3. (Optional) SQL DDL Example
+### Table: `users`
 
-```sql
--- Create `users` table
-CREATE TABLE users (
-  sno INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  mobile VARCHAR(20),
-  address TEXT,
-  username VARCHAR(100) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL,
-  dt DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create `doubt` table
-CREATE TABLE doubt (
-  sno INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  username VARCHAR(100) NOT NULL,
-  doubts TEXT NOT NULL,
-  dt DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create `feedback` table
-CREATE TABLE feedback (
-  sno INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  username VARCHAR(100) NOT NULL,
-  feedback TEXT NOT NULL,
-  dt DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create `fees` table
-CREATE TABLE fees (
-  sno INT AUTO_INCREMENT PRIMARY KEY,
-  student_name VARCHAR(255) NOT NULL,
-  semester VARCHAR(50),
-  prn VARCHAR(50),
-  amount DECIMAL(10,2),
-  datePaid DATE
-);
-```
+| Column Name | Data Type                             |
+| ----------- | ------------------------------------- |
+| sno         | INT (PRIMARY KEY, AUTO\_INCREMENT)    |
+| name        | VARCHAR                               |
+| mobile      | VARCHAR                               |
+| address     | TEXT                                  |
+| username    | VARCHAR                               |
+| password    | VARCHAR                               |
+| dt          | DATETIME (default CURRENT\_TIMESTAMP) |
 
 ---
 
-### 4. Running the Project
+### Table: `doubt`
 
-1. Place your project folder (e.g. `Student-Portal1`) inside XAMPP’s `htdocs` directory.
-2. Start **Apache** and **MySQL** via the XAMPP Control Panel.
-3. In your browser, navigate to `http://localhost/Student-Portal1/`.
+| Column Name | Data Type                             |
+| ----------- | ------------------------------------- |
+| S.no        | INT (PRIMARY KEY, AUTO\_INCREMENT)    |
+| name        | VARCHAR                               |
+| username    | VARCHAR                               |
+| doubts      | TEXT                                  |
+| dt          | DATETIME (default CURRENT\_TIMESTAMP) |
 
-You’re all set! 🚀
+---
+
+### Table: `feedback`
+
+| Column Name | Data Type                             |
+| ----------- | ------------------------------------- |
+| S.no        | INT (PRIMARY KEY, AUTO\_INCREMENT)    |
+| name        | VARCHAR                               |
+| username    | VARCHAR                               |
+| feedback    | TEXT                                  |
+| dt          | DATETIME (default CURRENT\_TIMESTAMP) |
+
+---
+
+### Table: `fees`
+
+| Column Name   | Data Type                          |
+| ------------- | ---------------------------------- |
+| S.No.         | INT (PRIMARY KEY, AUTO\_INCREMENT) |
+| student\_name | VARCHAR                            |
+| semester      | VARCHAR                            |
+| prn           | VARCHAR                            |
+| amount        | DECIMAL(10,2)                      |
+| datePaid      | DATE                               |
+
+---
+
+### Deployment Steps
+
+1. Copy the project folder `Student-portal1` into the `htdocs` directory of your XAMPP installation.
+2. Ensure that the database `users` and all 4 tables (`users`, `doubt`, `feedback`, `fees`) are created with **exact column names and cases** as shown.
+3. Open your browser and run:
+   `http://localhost/Student-portal1/`
+
+The project should now be running successfully.
