@@ -1,4 +1,4 @@
-## Student-portal1
+## loginsystem
 
 **Technologies Used:** HTML, CSS, JavaScript, PHP
 **Requirements:** XAMPP (for Apache and MySQL)
